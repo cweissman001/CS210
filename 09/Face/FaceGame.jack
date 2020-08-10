@@ -1,0 +1,57 @@
+
+class FaceGame {
+
+    field Face face;
+
+    constructor FaceGame new(){
+        let face = Face.new();
+
+        return this;
+
+    }
+
+    method void dispose() {
+        do face.dispose();
+        do Memory.deAlloc(this);
+        return;
+
+    }
+
+
+    method void run() {
+         var char press;
+         var boolean choice;
+
+         while (~choice) {
+             while (press = 0){
+                 let press = Keyboard.keyPressed();
+                 do face.drawOutside();
+             }
+
+             if (press = 131){
+                 do face.drawNeutral();
+                 
+             }
+
+             if (press = 133){
+                 do face.drawAngry(); 
+             }
+ 
+             if (press = 130){
+                 do face.drawSad();
+             }
+
+             if (press = 132){
+                 do face.drawDead();
+             }
+
+             while (~(press = 0)){
+                 let press = Keyboard.keyPressed();
+                 do face.drawOutside();
+             }
+
+    }    
+    return;
+    }
+}
+

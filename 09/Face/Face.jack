@@ -1,0 +1,81 @@
+
+
+
+class Face {
+     //location on the screen of origin of cirlce
+     field int x, y;
+ 
+     //radius of the circle 
+     field int r;
+
+
+     //constructor
+     constructor Face new() {
+         let x = 256;
+         let y = 128;
+         let r = 100;
+ 
+         do drawOutside();
+
+         return this;
+      }
+
+      method void dispose() {
+          do Memory.deAlloc(this);
+          return;
+      }
+
+      method void drawOutside() {
+          do Screen.setColor(true);
+          do Screen.drawCircle(x, y, r);
+          return;
+      }
+      
+      method void drawNeutral() {
+          //eyes
+          do Screen.setColor(false);
+          do Screen.drawCircle(214, 107, 10);
+          do Screen.drawCircle(300, 107, 10);
+          do Screen.drawLine(214, 190, 300, 190);
+          return;
+      }
+
+      method void drawSad() {
+          do Screen.setColor(false);
+          do Screen.drawLine(207, 114, 221, 100);
+          do Screen.drawLine(221, 100, 228, 114);
+          do Screen.drawLine(293, 114, 307, 100);
+          do Screen.drawLine(307, 100, 314, 114);
+          do Screen.drawLine(214, 190, 300, 190);
+          return;
+      }
+
+      method void drawAngry(){
+          do Screen.setColor(false);
+          do Screen.drawLine(207, 100, 221, 114);
+          do Screen.drawLine(221, 114, 228, 100);
+          do Screen.drawLine(293, 100, 307, 114);
+          do Screen.drawLine(307, 114, 314, 100);
+          do Screen.drawLine(214, 190, 300, 190);
+          return;
+      }
+
+
+      method void drawDead(){
+          do Screen.setColor(false);
+          do Screen.drawLine(207, 100, 221, 114);
+          do Screen.drawLine(207, 114, 221, 100);
+          do Screen.drawLine(293, 100, 307, 114);
+          do Screen.drawLine(293, 114, 307, 100);
+          
+          do Screen.setColor(true);
+          do Screen.drawCircle(220, 190, 7);
+          return;
+      }
+
+      method void erase() {
+          do Screen.setColor(false);
+          do Screen.drawCircle(x, y, r);
+          return;
+      }
+}

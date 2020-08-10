@@ -1,0 +1,13 @@
+class Main {
+    
+    function void main(){
+        var FaceGame game;
+    
+        let game = FaceGame.new();
+        do game.run();
+        do game.dispose();
+    
+        return;
+    }
+
+}

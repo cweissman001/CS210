@@ -1,0 +1,23 @@
+
+function mult 2     // declaration, name, 2 local vars
+ push constant 0    
+ pop local 0        // local var 0 (sum) = 0
+ push constant 1
+ pop local 1        // local var 1 (n)   = 1
+label LOOP
+ push local 1       // local var 1 (n)
+ push argument 1    // argument var 1 (y) 
+ gt                 // test (n > y) 
+ if-goto END        // if !(n>y) jump to END
+ push local 0       // local var 0 (sum)
+ push argument 0    // argument var 0 (x)
+ add                // sum+x
+ pop local 0        // local var 0 (sum = sum+x)
+ push local 1       //
+ push constant 1    
+ add
+ pop local 1        // n = n + 1
+ goto LOOP 
+label END
+ push local 0       // return sum
+ return
